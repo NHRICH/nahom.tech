@@ -3,11 +3,10 @@
 @tailwind utilities;
 
 :root {
-  --plum-noir: #0f0a1f;
-  --cloud-dancer: #f0f2f5;
-  --wasabi: #e2ff44;
-  --mist: #d8dde4;
-  --ink: #111018;
+  --deep-charcoal: #121212;
+  --charcoal-soft: #1d1d1d;
+  --muted-gold: #c5a059;
+  --ivory-fog: #ece8df;
 }
 
 * {
@@ -16,23 +15,18 @@
 
 body {
   margin: 0;
-  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-  color: var(--ink);
+  font-family: "Gill Sans", Optima, "Avenir Next", "Segoe UI", sans-serif;
+  color: var(--ivory-fog);
   text-rendering: optimizeLegibility;
   -webkit-text-size-adjust: 100%;
-  background:
-    radial-gradient(circle at 0% 0%, rgba(226, 255, 68, 0.2), transparent 35%),
-    radial-gradient(circle at 100% 100%, rgba(15, 10, 31, 0.08), transparent 40%),
-    var(--cloud-dancer);
+  background: var(--deep-charcoal);
 }
 
 h1,
-h2,
-h3,
-h4 {
-  font-family: ui-serif, "Iowan Old Style", "Palatino Linotype", "Times New Roman", serif;
+h2 {
+  font-family: "Bodoni MT", Didot, "Times New Roman", serif;
   letter-spacing: -0.02em;
-  font-synthesis: none;
+  font-synthesis-weight: none;
 }
 
 .page-shell {
@@ -40,54 +34,230 @@ h4 {
   overflow-x: clip;
 }
 
-.section-frame {
-  @apply mx-auto w-full max-w-6xl px-6 py-20 md:px-10;
+.cinema-page {
+  background:
+    radial-gradient(circle at 18% 20%, rgba(197, 160, 89, 0.1), transparent 28%),
+    radial-gradient(circle at 83% 82%, rgba(255, 255, 255, 0.04), transparent 22%),
+    var(--deep-charcoal);
 }
 
-.section-title {
-  @apply text-3xl leading-tight md:text-5xl;
+.nav-thin {
+  position: fixed;
+  z-index: 30;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 44px;
+  padding: 0 1.25rem;
+  border-bottom: 1px solid rgba(197, 160, 89, 0.3);
+  background: rgba(18, 18, 18, 0.65);
+  backdrop-filter: blur(10px);
 }
 
-.eyebrow {
-  @apply mb-4 inline-flex rounded-full border border-plumNoir/20 px-3 py-1 text-xs font-bold uppercase tracking-[0.2em] text-plumNoir/70;
+.brand-mark,
+.contact-link {
+  color: var(--ivory-fog);
+  text-decoration: none;
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
 }
 
-.surface-card {
-  @apply rounded-3xl border border-plumNoir/10 bg-white/80 p-6 shadow-halo backdrop-blur-sm;
+.brand-mark {
+  color: var(--muted-gold);
+  font-weight: 600;
 }
 
-.cta-pill {
-  @apply inline-flex items-center justify-center rounded-full bg-wasabi px-6 py-3 text-sm font-bold uppercase tracking-[0.08em] text-plumNoir transition hover:-translate-y-0.5 hover:shadow-lg;
+.hero-cinema {
+  position: relative;
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  padding: 4.5rem 1.25rem 2rem;
 }
 
-.fade-rise {
-  animation: fade-rise 700ms ease-out both;
+.hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.34) contrast(1.04) saturate(0.78);
 }
 
-.fade-rise.delay-1 {
-  animation-delay: 120ms;
-}
-
-.fade-rise.delay-2 {
-  animation-delay: 240ms;
-}
-
-.grid-stripes {
-  background-image: linear-gradient(
-      rgba(15, 10, 31, 0.06) 1px,
-      transparent 1px
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.58) 0%,
+      rgba(0, 0, 0, 0.38) 32%,
+      rgba(0, 0, 0, 0.7) 100%
     ),
-    linear-gradient(90deg, rgba(15, 10, 31, 0.06) 1px, transparent 1px);
-  background-size: 42px 42px;
+    radial-gradient(circle at 50% 55%, rgba(197, 160, 89, 0.12), transparent 43%);
 }
 
-@keyframes fade-rise {
-  from {
-    opacity: 0;
-    transform: translateY(18px);
+.hero-center-copy {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 54rem;
+  padding: 0 1.2rem;
+}
+
+.hero-kicker {
+  margin: 0;
+  color: rgba(236, 232, 223, 0.82);
+  letter-spacing: 0.42em;
+  font-size: 0.66rem;
+  text-transform: uppercase;
+}
+
+.hero-center-copy h1 {
+  margin: 1rem 0 0;
+  font-size: clamp(2rem, 8vw, 7.4rem);
+  font-weight: 700;
+  line-height: 0.92;
+  letter-spacing: 0.04em;
+  color: var(--ivory-fog);
+}
+
+.gallery-wrap {
+  padding: 6rem 1.25rem 0;
+}
+
+.gallery-grid {
+  max-width: 96rem;
+  margin: 0 auto;
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.work-card {
+  position: relative;
+  border: 1px solid rgba(197, 160, 89, 0.2);
+  border-radius: 1.35rem;
+  background: rgba(20, 20, 20, 0.92);
+  overflow: hidden;
+  transition: box-shadow 240ms ease, transform 240ms ease, border-color 240ms ease;
+}
+
+.work-card:hover {
+  box-shadow: 0 0 0 1px rgba(197, 160, 89, 0.46), 0 20px 50px rgba(0, 0, 0, 0.5);
+  border-color: rgba(197, 160, 89, 0.5);
+  transform: translateY(-3px);
+}
+
+.work-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  object-fit: cover;
+}
+
+.work-meta {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 1rem 0.95rem 0.95rem;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.82), rgba(0, 0, 0, 0));
+}
+
+.work-meta p {
+  margin: 0;
+  font-size: 0.96rem;
+  color: var(--ivory-fog);
+}
+
+.work-meta span {
+  display: inline-block;
+  margin-top: 0.35rem;
+  font-size: 0.64rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(197, 160, 89, 0.95);
+}
+
+.philosophy-block {
+  max-width: 84rem;
+  margin: 0 auto;
+  padding: 8rem 1.25rem 7.2rem;
+}
+
+.philosophy-block h2 {
+  margin: 0;
+  font-size: clamp(1.95rem, 5.7vw, 5.35rem);
+  line-height: 0.96;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--ivory-fog);
+  text-wrap: balance;
+}
+
+.footer-minimal {
+  max-width: 84rem;
+  margin: 0 auto;
+  padding: 0 1.25rem 3rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(197, 160, 89, 0.22);
+  padding-top: 1.2rem;
+}
+
+.footer-minimal a {
+  text-decoration: none;
+  font-size: 0.75rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(236, 232, 223, 0.9);
+}
+
+.social-row {
+  display: flex;
+  gap: 1.15rem;
+}
+
+@media (max-width: 1024px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+
+  .philosophy-block {
+    padding-top: 6.3rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .nav-thin {
+    padding: 0 0.9rem;
+  }
+
+  .gallery-wrap {
+    padding-top: 4rem;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .work-card img {
+    aspect-ratio: 4 / 5;
+  }
+
+  .philosophy-block {
+    padding: 4.8rem 1.25rem 4.6rem;
+  }
+
+  .footer-minimal {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.85rem;
   }
 }

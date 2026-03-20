@@ -7,22 +7,34 @@ const mediaDir = join(process.cwd(), "public", "media");
 
 const jobs = [
   {
-    name: "reel-poster",
-    input: "reel-poster.svg",
-    width: 1440,
-    quality: 72
+    name: "hero-poster",
+    input: "hero-poster.svg",
+    width: 1920,
+    quality: 64
   },
   {
-    name: "doc-before",
-    input: "doc-before.svg",
-    width: 1200,
-    quality: 68
+    name: "work-01",
+    input: "work-01.svg",
+    width: 540,
+    quality: 62
   },
   {
-    name: "doc-after",
-    input: "doc-after.svg",
-    width: 1200,
-    quality: 68
+    name: "work-02",
+    input: "work-02.svg",
+    width: 540,
+    quality: 62
+  },
+  {
+    name: "work-03",
+    input: "work-03.svg",
+    width: 540,
+    quality: 62
+  },
+  {
+    name: "work-04",
+    input: "work-04.svg",
+    width: 540,
+    quality: 62
   }
 ];
 

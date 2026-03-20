@@ -1,5 +1,4 @@
 import { defineConfig } from "astro/config";
-import react from "@astrojs/react";
 import tailwind from "@astrojs/tailwind";
 
 export default defineConfig({
@@ -12,8 +11,7 @@ export default defineConfig({
   integrations: [
     tailwind({
       applyBaseStyles: false
-    }),
-    react()
+    })
   ],
   vite: {
     build: {

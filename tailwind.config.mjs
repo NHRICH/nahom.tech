@@ -4,20 +4,21 @@ export default {
   theme: {
     extend: {
       colors: {
-        plumNoir: "#0F0A1F",
-        cloudDancer: "#F0F2F5",
-        wasabi: "#E2FF44"
+        deepCharcoal: "#121212",
+        mutedGold: "#C5A059",
+        charcoalSoft: "#1D1D1D",
+        ivoryFog: "#ECE8DF"
       },
       boxShadow: {
-        halo: "0 20px 60px rgba(15, 10, 31, 0.2)"
+        glowGold: "0 0 0 1px rgba(197, 160, 89, 0.3), 0 18px 36px rgba(0, 0, 0, 0.45)"
       },
       backgroundImage: {
-        grain:
-          "radial-gradient(circle at 10% 10%, rgba(226, 255, 68, 0.08) 0%, transparent 35%), radial-gradient(circle at 90% 80%, rgba(15, 10, 31, 0.2) 0%, transparent 40%)"
+        film:
+          "radial-gradient(circle at 15% 15%, rgba(197, 160, 89, 0.12) 0%, transparent 32%), radial-gradient(circle at 85% 80%, rgba(255, 255, 255, 0.04) 0%, transparent 30%)"
       },
       fontFamily: {
-        display: ["ui-serif", "Iowan Old Style", "Palatino Linotype", "Times New Roman", "serif"],
-        body: ["ui-sans-serif", "system-ui", "-apple-system", "Segoe UI", "Helvetica Neue", "Arial", "sans-serif"]
+        display: ["Bodoni MT", "Didot", "Times New Roman", "serif"],
+        body: ["Gill Sans", "Optima", "Avenir Next", "Segoe UI", "sans-serif"]
       }
     }
   },
