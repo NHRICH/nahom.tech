@@ -1,0 +1,30 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "High-Ticket Agency Portfolio",
+  description = "Full-stack systems and high-conversion video strategy for NGOs and Retailers."
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#0F0A1F" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+  </head>
+  <body class="bg-cloudDancer text-plumNoir antialiased">
+    <div class="page-shell">
+      <slot />
+    </div>
+  </body>
+</html>
