@@ -1,103 +1,163 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
 
-const workItems = [
+const tools = ["NEXT.JS", "DJANGO", "PREMIERE PRO", "AFTER EFFECTS", "AI AGENTS"];
+
+const projects = [
   {
-    title: "Retail Launch Film",
-    format: "9:16 Storyline",
+    id: "01",
+    title: "DAUGHTERS OF CHARITY (THE NGO CASE)",
+    tag: "STACK: DJANGO/NEXT.JS",
+    stat: "IMPACT: 392,499 LIVES",
     poster: "/media/work-01.webp",
-    posterFallback: "/media/work-01.svg"
+    posterFallback: "/media/work-01.svg",
+    previewVideo: "/media/work-01-preview.mp4"
   },
   {
-    title: "NGO Impact Reel",
-    format: "Vertical Documentary",
+    id: "02",
+    title: "AV EVENTS (THE FINTECH CASE)",
+    tag: "TECH: CHAPA + QR INTEGRATION",
+    stat: "IMPACT: MANUAL TO DIGITAL TICKETING",
     poster: "/media/work-02.webp",
-    posterFallback: "/media/work-02.svg"
-  },
-  {
-    title: "Founder Brand Cut",
-    format: "Short-Form Conversion",
-    poster: "/media/work-03.webp",
-    posterFallback: "/media/work-03.svg"
-  },
-  {
-    title: "Campaign Teaser",
-    format: "Ad-Native Sequence",
-    poster: "/media/work-04.webp",
-    posterFallback: "/media/work-04.svg"
+    posterFallback: "/media/work-02.svg",
+    previewVideo: "/media/work-02-preview.mp4"
   }
 ];
 ---
 
 <MainLayout
-  title="AV MEDIA | Boutique Video Agency Portfolio"
-  description="Cinematic strategy and gallery-first storytelling for brands that need engineered attention."
+  title="NAHOM.TECH | Executive Architect Portfolio"
+  description="Brutalist-Luxury portfolio for Nahom, systems architect building high-performance digital infrastructure."
 >
-  <main class="cinema-page">
-    <header class="nav-thin">
-      <a class="brand-mark" href="#top">AV MEDIA</a>
-      <a class="contact-link" href="#footer">CONTACT</a>
+  <main id="top" class="portfolio-shell">
+    <div class="structure-lines" aria-hidden="true"></div>
+    <input
+      id="theme-mode"
+      class="theme-mode-input"
+      type="checkbox"
+      aria-label="Enable night theme"
+    />
+
+    <header class="site-nav">
+      <a class="nav-brand glow-ring" href="#top">NAHOM.</a>
+      <nav class="nav-menu" aria-label="Primary">
+        <a href="#about">01/ABOUT</a>
+        <a href="#work">02/WORKS</a>
+        <a href="#services">03/SERVICES</a>
+        <a href="#vault">04/VAULT</a>
+      </nav>
+      <div class="nav-status-wrap">
+        <p class="nav-status">OPERATIONAL <span aria-hidden="true">●</span></p>
+        <label class="theme-switch glow-ring" for="theme-mode">
+          <span class="switch-day">OFF</span>
+          <span class="switch-track" aria-hidden="true">
+            <span class="switch-knob"></span>
+          </span>
+          <span class="switch-night">ON</span>
+        </label>
+      </div>
     </header>
 
-    <section id="top" class="hero-cinema">
+    <section id="about" class="hero-block">
       <video
-        class="hero-video"
+        class="hero-reel"
         autoplay
         muted
         loop
         playsinline
         preload="none"
         poster="/media/hero-poster.webp"
-        aria-label="AV MEDIA cinematic hero backdrop"
+        aria-label="Architectural background reel"
       >
-        <source src="/media/hero-mobile.webm" type="video/webm" media="(max-width: 767px)" />
-        <source src="/media/hero-mobile.mp4" type="video/mp4" media="(max-width: 767px)" />
-        <source src="/media/hero-desktop.webm" type="video/webm" media="(min-width: 768px)" />
-        <source src="/media/hero-desktop.mp4" type="video/mp4" media="(min-width: 768px)" />
+        <source src="/media/hero-desktop.webm" type="video/webm" />
+        <source src="/media/hero-desktop.mp4" type="video/mp4" />
       </video>
-      <div class="hero-overlay" aria-hidden="true"></div>
-      <div class="hero-center-copy">
-        <p class="hero-kicker">AV MEDIA</p>
-        <h1>CINEMATIC STRATEGY</h1>
+      <div class="hero-grain" aria-hidden="true"></div>
+      <h1 class="hero-title">NAHOM</h1>
+      <p class="hero-axis">SYSTEMS ARCHITECT &amp; INFRASTRUCTURE LEAD</p>
+      <a class="hero-cta glow-ring" href="#audit">START STRATEGIC AUDIT -&gt;</a>
+    </section>
+
+    <section class="tool-marquee" aria-label="Core toolchain marquee">
+      <div class="marquee-track">
+        <ul class="marquee-list">
+          {tools.map((tool) => (
+            <li>{tool}</li>
+          ))}
+        </ul>
+        <ul class="marquee-list" aria-hidden="true">
+          {tools.map((tool) => (
+            <li>{tool}</li>
+          ))}
+        </ul>
       </div>
     </section>
 
-    <section id="work-grid" class="gallery-wrap">
-      <div class="gallery-grid">
-        {workItems.map((item) => (
-          <article class="work-card">
-            <picture>
-              <source srcset={item.poster.replace(".webp", ".avif")} type="image/avif" />
-              <source srcset={item.poster} type="image/webp" />
-              <img
-                src={item.posterFallback}
-                alt={`${item.title} visual preview`}
-                width="540"
-                height="960"
-                loading="lazy"
-                decoding="async"
-              />
-            </picture>
-            <div class="work-meta">
-              <p>{item.title}</p>
-              <span>{item.format}</span>
-            </div>
-          </article>
+    <section id="work" class="work-section">
+      <ol class="work-list">
+        {projects.map((project) => (
+          <li class="work-row" data-work-row>
+            <button class="work-link glow-ring" type="button" data-open-modal>
+              <span class="work-index">{project.id}</span>
+              <span class="work-title">{project.title}</span>
+              <span class="work-domain">{project.tag}</span>
+              <span class="work-stat">{project.stat}</span>
+              <picture class="work-preview" aria-hidden="true">
+                <source srcset={project.poster.replace(".webp", ".avif")} type="image/avif" />
+                <source srcset={project.poster} type="image/webp" />
+                <img src={project.posterFallback} alt="" width="540" height="960" loading="lazy" decoding="async" />
+              </picture>
+              <video
+                class="work-preview-video"
+                muted
+                loop
+                playsinline
+                preload="none"
+                poster={project.poster}
+                aria-hidden="true"
+              >
+                <source src={project.previewVideo} type="video/mp4" />
+              </video>
+            </button>
+          </li>
         ))}
-      </div>
+      </ol>
     </section>
 
-    <section id="philosophy" class="philosophy-block">
-      <h2>WE DON&apos;T JUST EDIT; WE ENGINEER ATTENTION.</h2>
+    <section id="services" class="cta-band">
+      <p>READY TO SCALE?</p>
+      <a class="cta-button glow-ring" href="mailto:nahom@nahom.tech?subject=Commence%20Project%20Audit">COMMENCE PROJECT AUDIT</a>
     </section>
 
-    <footer id="footer" class="footer-minimal">
-      <a href="mailto:hello@avmedia.studio">hello@avmedia.studio</a>
-      <div class="social-row">
-        <a href="https://instagram.com" target="_blank" rel="noreferrer">Instagram</a>
-        <a href="https://youtube.com" target="_blank" rel="noreferrer">YouTube</a>
-        <a href="https://vimeo.com" target="_blank" rel="noreferrer">Vimeo</a>
-      </div>
-    </footer>
+    <section id="vault" class="vault-anchor" aria-hidden="true"></section>
   </main>
+
+  <script>
+    const rows = document.querySelectorAll("[data-work-row]");
+
+    rows.forEach((row) => {
+      row.addEventListener("pointermove", (event) => {
+        const rect = row.getBoundingClientRect();
+        const x = event.clientX - rect.left;
+        const y = event.clientY - rect.top;
+        row.style.setProperty("--cursor-x", `${x}px`);
+        row.style.setProperty("--cursor-y", `${y}px`);
+      });
+
+      row.addEventListener("pointerenter", () => {
+        const video = row.querySelector(".work-preview-video");
+        if (video instanceof HTMLVideoElement) {
+          void video.play().catch(() => undefined);
+        }
+      });
+
+      row.addEventListener("pointerleave", () => {
+        const video = row.querySelector(".work-preview-video");
+        if (video instanceof HTMLVideoElement) {
+          video.pause();
+          video.currentTime = 0;
+        }
+      });
+    });
+  </script>
 </MainLayout>

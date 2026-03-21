@@ -4,21 +4,19 @@ export default {
   theme: {
     extend: {
       colors: {
-        deepCharcoal: "#121212",
-        mutedGold: "#C5A059",
-        charcoalSoft: "#1D1D1D",
-        ivoryFog: "#ECE8DF"
+        dayBg: "#F0F0F0",
+        dayText: "#4A3F36",
+        nightBg: "#0A0A0A",
+        nightText: "#FFFFFF",
+        rolexGreen: "#006039",
+        cyberNeon: "#70f7cf"
       },
       boxShadow: {
-        glowGold: "0 0 0 1px rgba(197, 160, 89, 0.3), 0 18px 36px rgba(0, 0, 0, 0.45)"
-      },
-      backgroundImage: {
-        film:
-          "radial-gradient(circle at 15% 15%, rgba(197, 160, 89, 0.12) 0%, transparent 32%), radial-gradient(circle at 85% 80%, rgba(255, 255, 255, 0.04) 0%, transparent 30%)"
+        rolexGlow: "0 0 0 1px rgba(0, 96, 57, 0.55), 0 0 18px rgba(0, 96, 57, 0.35)"
       },
       fontFamily: {
-        display: ["Bodoni MT", "Didot", "Times New Roman", "serif"],
-        body: ["Gill Sans", "Optima", "Avenir Next", "Segoe UI", "sans-serif"]
+        headline: ["Inter Tight", "Arial Black", "sans-serif"],
+        technical: ["JetBrains Mono", "Consolas", "monospace"]
       }
     }
   },
