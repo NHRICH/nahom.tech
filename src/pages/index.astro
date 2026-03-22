@@ -1,163 +1,189 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
 
-const tools = ["NEXT.JS", "DJANGO", "PREMIERE PRO", "AFTER EFFECTS", "AI AGENTS"];
-
-const projects = [
+const operations = [
   {
-    id: "01",
-    title: "DAUGHTERS OF CHARITY (THE NGO CASE)",
-    tag: "STACK: DJANGO/NEXT.JS",
-    stat: "IMPACT: 392,499 LIVES",
-    poster: "/media/work-01.webp",
-    posterFallback: "/media/work-01.svg",
-    previewVideo: "/media/work-01-preview.mp4"
+    id: "AV_SAAS",
+    title: "AV SaaS",
+    role: "(The Infrastructure Arm)",
+    subtitle: "High-Ticket NGO & Enterprise ERP.",
+    metrics: [
+      { label: "Lives Impacted", val: "392,499+" },
+      { label: "Fraud Reduction", val: "Zero-leakage" }
+    ],
+    link: "#saas"
   },
   {
-    id: "02",
-    title: "AV EVENTS (THE FINTECH CASE)",
-    tag: "TECH: CHAPA + QR INTEGRATION",
-    stat: "IMPACT: MANUAL TO DIGITAL TICKETING",
-    poster: "/media/work-02.webp",
-    posterFallback: "/media/work-02.svg",
-    previewVideo: "/media/work-02-preview.mp4"
+    id: "AV_MEDIA",
+    title: "AV Media",
+    role: "(The Creative Arm)",
+    subtitle: "Video, Strategy & Visual Authority.",
+    metrics: [
+      { label: "Focus", val: "B2B brands that refuse to look generic." }
+    ],
+    link: "#media"
+  }
+];
+
+const impacts = [
+  { number: "392,499+", title: "Lives Impacted via DOC Transformation" },
+  { number: "0%", title: "Leakage via AV Events FinTech Ecosystem" },
+  { number: "90%", title: "Admin Reduction via AV Gym Health-Tech ERP" }
+];
+
+const capabilities = [
+  { 
+    title: "Enterprise Infrastructure (NGO ERP)",
+    icon: `<svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>`
+  },
+  { 
+    title: "FinTech Automation (Payment Rails)",
+    icon: `<svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>`
+  },
+  { 
+    title: "Strategic Reporting (Real-time Dashboards)",
+    icon: `<svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>`
+  },
+  { 
+    title: "Offline-First Solutions (Sync Layer)",
+    icon: `<svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path></svg>`
+  }
+];
+
+const networks = [
+  { 
+    id: "Vault_Sync", 
+    title: "NHRICH / GitHub Vault", 
+    href: "https://github.com/NHRICH",
+    desc: "The source code repository for all high-stakes AV architecture." 
+  },
+  { 
+    id: "Tech_Partner", 
+    title: "Lead Technical Collaborator: Leantan337", 
+    href: "https://github.com/Leantan337",
+    desc: "Strategic partner acting as senior collaborator on enterprise scale builds." 
   }
 ];
 ---
 
-<MainLayout
-  title="NAHOM.TECH | Executive Architect Portfolio"
-  description="Brutalist-Luxury portfolio for Nahom, systems architect building high-performance digital infrastructure."
->
-  <main id="top" class="portfolio-shell">
-    <div class="structure-lines" aria-hidden="true"></div>
-    <input
-      id="theme-mode"
-      class="theme-mode-input"
-      type="checkbox"
-      aria-label="Enable night theme"
-    />
-
-    <header class="site-nav">
-      <a class="nav-brand glow-ring" href="#top">NAHOM.</a>
-      <nav class="nav-menu" aria-label="Primary">
-        <a href="#about">01/ABOUT</a>
-        <a href="#work">02/WORKS</a>
-        <a href="#services">03/SERVICES</a>
-        <a href="#vault">04/VAULT</a>
+<MainLayout>
+  <!-- MINIMALIST TOP NAV -->
+  <header class="top-nav">
+    <div class="container" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+      <a href="/" class="nav-brand brand-font">
+        <span class="brand-accent"></span>
+        N.MERHATSYON
+      </a>
+      <nav class="nav-menu">
+        <a href="#mandate">Mandate</a>
+        <a href="#operations">Operations</a>
+        <a href="#impact">Impact</a>
+        <a href="#network">Network</a>
       </nav>
-      <div class="nav-status-wrap">
-        <p class="nav-status">OPERATIONAL <span aria-hidden="true">●</span></p>
-        <label class="theme-switch glow-ring" for="theme-mode">
-          <span class="switch-day">OFF</span>
-          <span class="switch-track" aria-hidden="true">
-            <span class="switch-knob"></span>
-          </span>
-          <span class="switch-night">ON</span>
-        </label>
-      </div>
-    </header>
+    </div>
+  </header>
 
-    <section id="about" class="hero-block">
-      <video
-        class="hero-reel"
-        autoplay
-        muted
-        loop
-        playsinline
-        preload="none"
-        poster="/media/hero-poster.webp"
-        aria-label="Architectural background reel"
-      >
-        <source src="/media/hero-desktop.webm" type="video/webm" />
-        <source src="/media/hero-desktop.mp4" type="video/mp4" />
-      </video>
-      <div class="hero-grain" aria-hidden="true"></div>
-      <h1 class="hero-title">NAHOM</h1>
-      <p class="hero-axis">SYSTEMS ARCHITECT &amp; INFRASTRUCTURE LEAD</p>
-      <a class="hero-cta glow-ring" href="#audit">START STRATEGIC AUDIT -&gt;</a>
-    </section>
+  <!-- HERO (HEADER) -->
+  <section class="hero container">
+    <h1 class="hero-title">
+      NAHOM<br/>
+      <span>MERHATSYON</span>
+    </h1>
+    <p class="hero-tagline">
+      Principal Systems Architect &amp; Creative Strategy.
+    </p>
+  </section>
 
-    <section class="tool-marquee" aria-label="Core toolchain marquee">
-      <div class="marquee-track">
-        <ul class="marquee-list">
-          {tools.map((tool) => (
-            <li>{tool}</li>
-          ))}
-        </ul>
-        <ul class="marquee-list" aria-hidden="true">
-          {tools.map((tool) => (
-            <li>{tool}</li>
-          ))}
-        </ul>
-      </div>
-    </section>
+  <!-- THE MANDATE (CORE PURPOSE) -->
+  <section id="mandate" class="mandate">
+    <div class="container">
+      <h2 class="section-label">01. The Mandate</h2>
+      <p class="mandate-text">
+        I build the digital infrastructure that eliminates chaos. <span class="mandate-highlight">High-stakes systems, engineered with fintech-grade precision.</span>
+      </p>
+    </div>
+  </section>
 
-    <section id="work" class="work-section">
-      <ol class="work-list">
-        {projects.map((project) => (
-          <li class="work-row" data-work-row>
-            <button class="work-link glow-ring" type="button" data-open-modal>
-              <span class="work-index">{project.id}</span>
-              <span class="work-title">{project.title}</span>
-              <span class="work-domain">{project.tag}</span>
-              <span class="work-stat">{project.stat}</span>
-              <picture class="work-preview" aria-hidden="true">
-                <source srcset={project.poster.replace(".webp", ".avif")} type="image/avif" />
-                <source srcset={project.poster} type="image/webp" />
-                <img src={project.posterFallback} alt="" width="540" height="960" loading="lazy" decoding="async" />
-              </picture>
-              <video
-                class="work-preview-video"
-                muted
-                loop
-                playsinline
-                preload="none"
-                poster={project.poster}
-                aria-hidden="true"
-              >
-                <source src={project.previewVideo} type="video/mp4" />
-              </video>
-            </button>
-          </li>
+  <!-- OPERATIONS (DUAL-ARM FOCUS) -->
+  <section id="operations" class="operations container">
+    <h2 class="section-label">02. Operations</h2>
+    <div class="ops-grid">
+      {operations.map((op) => (
+        <article class="ops-card">
+          <h3 class="ops-title">
+            {op.title} <span style="font-size: 0.9rem; font-family: 'Inter', sans-serif; font-weight: 500; color: var(--accent);">{op.role}</span>
+          </h3>
+          <p class="ops-subtitle">{op.subtitle}</p>
+          <div class="ops-metrics">
+            {op.metrics.map(m => (
+              <div class="metric-item">
+                <span class="metric-label">{m.label}:</span>
+                <span class="metric-val">{m.val}</span>
+              </div>
+            ))}
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <!-- IMPACT RECORD (PROOF) -->
+  <section id="impact" class="impact-record container">
+    <h2 class="section-label">03. Impact Record</h2>
+    <div class="impact-list">
+      {impacts.map((item) => (
+        <div class="impact-item">
+          <div class="impact-number">{item.number}</div>
+          <h3 class="impact-title">{item.title}</h3>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- ARCHITECTURE CAPABILITIES (THE MECHANISM) -->
+  <section class="capabilities">
+    <div class="container">
+      <h2 class="section-label">04. Architecture Capabilities</h2>
+      <div class="cap-grid">
+        {capabilities.map((cap) => (
+          <div class="cap-item">
+            <div class="cap-icon" set:html={cap.icon} />
+            <h4 class="cap-title">{cap.title}</h4>
+          </div>
         ))}
-      </ol>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <section id="services" class="cta-band">
-      <p>READY TO SCALE?</p>
-      <a class="cta-button glow-ring" href="mailto:nahom@nahom.tech?subject=Commence%20Project%20Audit">COMMENCE PROJECT AUDIT</a>
-    </section>
+  <!-- THE STRATEGIC NETWORK (VAULT) -->
+  <section id="network" class="network container">
+    <h2 class="section-label">05. Strategic Network</h2>
+    <div class="network-grid">
+      {networks.map((net) => (
+        <a href={net.href} target="_blank" rel="noopener noreferrer" class="network-card">
+          <span class="network-id">{net.id}</span>
+          <h4 class="network-title">{net.title}</h4>
+          <span class="network-link">View Registry</span>
+        </a>
+      ))}
+    </div>
+  </section>
 
-    <section id="vault" class="vault-anchor" aria-hidden="true"></section>
-  </main>
+  <!-- FOOTER CTA -->
+  <footer class="footer-cta container">
+    <h2 class="cta-title">LET’S BUILD SOMETHING POWERFUL.</h2>
+    <p class="cta-subtitle">Currently accepting 2 new high-stakes engagements.</p>
+    
+    <a href="mailto:nahomrich4@gmail.com" class="btn-accent">
+      INITIALIZE SECURE COMM LINE
+    </a>
 
-  <script>
-    const rows = document.querySelectorAll("[data-work-row]");
+    <div class="footer-bottom">
+      <span>&copy; 2026 NAHOM MERHATSYON. ALL SYSTEMS ONLINE.</span>
+      <span style="letter-spacing: 0.1em; color: var(--accent); text-transform: uppercase;">
+        AV SAAS // AV MEDIA
+      </span>
+    </div>
+  </footer>
 
-    rows.forEach((row) => {
-      row.addEventListener("pointermove", (event) => {
-        const rect = row.getBoundingClientRect();
-        const x = event.clientX - rect.left;
-        const y = event.clientY - rect.top;
-        row.style.setProperty("--cursor-x", `${x}px`);
-        row.style.setProperty("--cursor-y", `${y}px`);
-      });
-
-      row.addEventListener("pointerenter", () => {
-        const video = row.querySelector(".work-preview-video");
-        if (video instanceof HTMLVideoElement) {
-          void video.play().catch(() => undefined);
-        }
-      });
-
-      row.addEventListener("pointerleave", () => {
-        const video = row.querySelector(".work-preview-video");
-        if (video instanceof HTMLVideoElement) {
-          video.pause();
-          video.currentTime = 0;
-        }
-      });
-    });
-  </script>
 </MainLayout>
