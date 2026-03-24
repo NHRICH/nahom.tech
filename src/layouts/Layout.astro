@@ -1,0 +1,30 @@
+---
+import '../styles/global.css';
+
+interface Props {
+	title: string;
+	description?: string;
+}
+
+const { title, description = "Building scalable infrastructure for enterprises and international NGOs." } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<meta name="description" content={description} />
+		<title>{title}</title>
+		<script is:inline>
+			const pref = typeof localStorage !== 'undefined' ? localStorage.getItem('site-theme') : null;
+			const shouldUseNight = pref ? pref === 'night' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+			document.documentElement.classList.toggle('night', shouldUseNight);
+		</script>
+	</head>
+	<body class="bg-[var(--color-bg)] text-[var(--color-text)] font-sans antialiased selection:bg-[var(--color-accent)] selection:text-[var(--color-bg)]">
+		<slot />
+	</body>
+</html>
