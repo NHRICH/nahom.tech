@@ -39,14 +39,14 @@ const projects = [
     external: true,
     embedAllowed: false,
     embedMessage: 'Embedding disabled by avyevents.com security headers.',
-    snapshotSrc: 'https://image.thum.io/get/width/1600/crop/900/noanimate/https://avyevents.com'
+    snapshotSrc: ''
   },
   {
     id: 'av-saas',
-    title: 'Proprietary ERP - Access Restricted.',
-    role: 'Systems Architect',
-    metric: 'Internal system - access restricted.',
-    copy: 'Proprietary operations infrastructure for manufacturing intelligence with protected workflows, governed data layers, and high-value internal IP.',
+    title: 'Proprietary ERP Platform',
+    role: 'Enterprise Systems Architect',
+    metric: 'Live platform preview available.',
+    copy: 'Operations infrastructure for manufacturing intelligence with protected workflows, governed data layers, and high-value internal IP.',
     tags: ['custom ERP', 'n8n Automation', 'Business Intelligence'],
     details: ['Inventory intelligence engine', 'Sales workflow orchestration', 'Cross-module reporting model'],
     icon: <Monitor size={18} className="text-[var(--color-accent-base)]" />,
@@ -164,31 +164,42 @@ export default function VaultProjects() {
                     <span className="tech-mono text-[10px] text-[var(--color-muted-base)]">{item.url}</span>
                   </div>
 
-                  <div className="relative h-44 sm:h-52 overflow-hidden bg-black/60">
+                  <div className="relative h-48 sm:h-56 overflow-hidden bg-black/60">
                     {item.embedAllowed ? (
                       <div className="absolute inset-0 overflow-hidden">
                         <iframe
                           src={item.link}
                           title={`${item.title} live preview`}
                           loading="lazy"
-                          className="absolute left-0 top-0 w-[1280px] h-[860px] origin-top-left pointer-events-none [transform:scale(0.34)] sm:[transform:scale(0.42)]"
+                          className="absolute left-1/2 top-0 w-[1440px] h-[1024px] origin-top-left pointer-events-none [transform:translateX(-50%)_scale(0.23)] sm:[transform:translateX(-50%)_scale(0.28)] lg:[transform:translateX(-50%)_scale(0.27)]"
                           sandbox="allow-same-origin allow-scripts allow-forms allow-popups"
                           referrerPolicy="strict-origin-when-cross-origin"
                         />
                       </div>
                     ) : (
                       <div className="absolute inset-0">
-                        <img
-                          src={item.snapshotSrc}
-                          alt={`${item.title} live snapshot`}
-                          loading="lazy"
-                          className="w-full h-full object-cover object-top pointer-events-none"
-                          referrerPolicy="no-referrer"
-                        />
+                        {item.snapshotSrc ? (
+                          <img
+                            src={item.snapshotSrc}
+                            alt={`${item.title} live snapshot`}
+                            loading="lazy"
+                            className="w-full h-full object-cover object-top pointer-events-none"
+                            referrerPolicy="no-referrer"
+                          />
+                        ) : (
+                          <div className="w-full h-full bg-[linear-gradient(145deg,rgba(20,16,8,0.9),rgba(8,10,12,0.96))] p-3 flex flex-col justify-center">
+                            <p className="tech-mono text-[10px] uppercase tracking-[0.08em] text-[var(--color-accent-base)]">
+                              Live preview unavailable
+                            </p>
+                            <p className="mt-2 text-xs leading-relaxed text-[var(--color-muted-base)]">
+                              External protections prevent remote preview rendering for this domain.
+                            </p>
+                          </div>
+                        )}
                         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.08),rgba(4,5,6,0.58))]" />
                         <div className="absolute left-3 right-3 bottom-3 border border-[var(--color-border)] bg-black/55 px-2.5 py-2">
                           <p className="tech-mono text-[10px] uppercase tracking-[0.08em] text-[var(--color-accent-base)]">
-                            Iframe blocked by site security headers
+                            {item.snapshotSrc ? 'Iframe blocked by site security headers' : 'Direct open recommended'}
                           </p>
                           <p className="mt-1 text-[11px] leading-relaxed text-[var(--color-muted-base)]">
                             Click card to open the live site in a full tab.
